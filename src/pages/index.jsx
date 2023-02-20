@@ -1,4 +1,4 @@
-import Image from 'next/Image';
+import Image from 'next/image';
 import { Flex, Stack, Text, Heading, Icon } from '@chakra-ui/react';
 
 import { socialLinks } from '@/constants';
