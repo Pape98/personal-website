@@ -40,7 +40,7 @@ const Home = () => {
 
           <Text fontSize='xl'>
             I am a software developer who enjoys building tools and learning
-            about new technologies 📚.
+            about new technologies 📚!.
           </Text>
           <SocialMedia />
         </Stack>
