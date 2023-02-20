@@ -1,4 +1,2 @@
-import Footer from './Footer';
-import Navbar from './Navbar';
-
-export { Footer, Navbar };
+export * from './cards';
+export * from './layout';
