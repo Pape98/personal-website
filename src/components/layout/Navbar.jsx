@@ -3,14 +3,16 @@ import NextLink from 'next/link';
 
 const Navbar = () => {
   return (
-    <Flex justify='space-between' align='center' pt='16px'>
-      <Heading size='md'>PAPE TRAORE</Heading>
+    <Flex justify='space-between' align='center' pt='16px' pb='40px'>
+      <Link as={NextLink} href='/' textDecoration='none'>
+        <Heading size='md'>pape traoré</Heading>
+      </Link>
       <HStack spacing={9}>
-        <Link as={NextLink} href='/'>
-          About
+        <Link as={NextLink} href='/about'>
+          about
         </Link>
-        <Link as={NextLink} href='/'>
-          Projects
+        <Link as={NextLink} href='/projects'>
+          projects
         </Link>
       </HStack>
     </Flex>

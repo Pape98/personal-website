@@ -35,12 +35,12 @@ const Home = () => {
         </Flex>
         <Stack direction='column'>
           <Text fontSize='4xl' noOfLines={2}>
-            Hi, I&apos;m Pape 👋🏽
+            hi, i&apos;m pape 👋🏽
           </Text>
 
           <Text fontSize='xl'>
-            I am a software developer who enjoys building tools and learning
-            about new technologies 📚!.
+            i am a software developer who enjoys building tools and learning
+            about new technologies 📚!
           </Text>
           <SocialMedia />
         </Stack>

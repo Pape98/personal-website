@@ -4,19 +4,19 @@ const socialLinks = [
   {
     icon: AiOutlineGithub,
     url: 'https://github.com/Pape98',
-    title: 'Github',
+    title: 'github',
     color: 'gray.700',
   },
   {
     icon: AiFillLinkedin,
     url: 'https://www.linkedin.com/in/pape-sow-traore/',
-    title: 'LinkedIn',
+    title: 'linkedIn',
     color: 'blue.500',
   },
   {
     icon: AiOutlineMail,
     url: 'mailto: papisline2222@gmail.com',
-    title: 'Email',
+    title: 'email',
     color: 'orange.500',
   },
 ];
