@@ -1,13 +1,12 @@
 import { Stack, Text, Heading } from '@chakra-ui/react';
 
-import { ProjectCard } from '../components';
+import { airtable } from '@/config';
+import { ProjectCard } from '@/components';
 
-const Projects = () => {
-  const list = Array(30)
-    .fill(0)
-    .map((x, i) => {
-      return <ProjectCard key={i} />;
-    });
+const Projects = ({ projects }) => {
+  const list = projects.map(project => {
+    return <ProjectCard key={project.title} project={project} />;
+  });
 
   return (
     <Stack py='50px'>
@@ -22,6 +21,14 @@ const Projects = () => {
       </Stack>
     </Stack>
   );
+};
+
+export const getStaticProps = async () => {
+  const records = await airtable('Projects').select().firstPage();
+  const projects = records.map(record => record.fields);
+  return {
+    props: { projects },
+  };
 };
 
 export default Projects;

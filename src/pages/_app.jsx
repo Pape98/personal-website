@@ -2,7 +2,7 @@
 import { ChakraProvider, Container, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 
-import { theme } from '../config';
+import { theme } from '@/config';
 import { Navbar, Footer } from '../components';
 
 import '@/styles/globals.sass';

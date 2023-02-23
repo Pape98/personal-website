@@ -1,3 +1,4 @@
 import theme from './theme';
+import airtable from './airtable';
 
-export { theme };
+export { airtable, theme };

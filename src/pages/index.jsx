@@ -45,7 +45,7 @@ const Home = () => {
           <SocialMedia />
         </Stack>
       </Flex>
-      <Heading size='md'>PROJECTS</Heading>
+      <Heading size='md'>projects</Heading>
       <Stack direction='column'></Stack>
     </Stack>
   );
