@@ -22,8 +22,6 @@ const ProjectCard = ({ project }) => {
 
   const gradient =
     'linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 62%)';
-  const image =
-    'https://images.unsplash.com/photo-1612528443702-f6741f70a049?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80';
 
   const tags = project.technologies?.map(tech => {
     return (
@@ -36,9 +34,8 @@ const ProjectCard = ({ project }) => {
   return (
     <>
       <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
-      <Stack>
+      <Stack borderRadius='lg'>
         <Heading size='lg'>{project.title?.toLowerCase()}</Heading>
-        <Text fontSize='md'>{project.emojis}</Text>
         <Box
           position='relative'
           h='250px'
@@ -48,7 +45,11 @@ const ProjectCard = ({ project }) => {
           cursor='pointer'
         >
           <Card
-            bgImage={`url('${image}')`}
+            bgImage={`url('${
+              project.image.length > 0
+                ? project.image[0].url
+                : defaultProjectImage
+            }')`}
             bgPosition='center'
             bgRepeat='no-repeat'
             h='250px'
