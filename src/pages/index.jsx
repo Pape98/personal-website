@@ -23,29 +23,13 @@ const SocialMedia = () => {
 const Home = () => {
   return (
     <Stack>
-      <Flex my='5rem' gap={7} direction={{ base: 'column', md: 'row' }}>
-        <Flex justify={{ base: 'center', lg: 'flex-start' }} flexShrink={0}>
-          <Image
-            src='https://via.placeholder.com/200'
-            width={175}
-            height={175}
-            alt='Pape Traore'
-            style={{ align: 'center' }}
-          />
-        </Flex>
-        <Stack direction='column'>
-          <Text fontSize='4xl' noOfLines={2}>
-            hi, i&apos;m pape 👋🏽
-          </Text>
-
-          <Text fontSize='xl'>
-            i am a software developer who enjoys building tools and learning
-            about new technologies 📚!
-          </Text>
-          <SocialMedia />
-        </Stack>
-      </Flex>
-      <Heading size='md'>projects</Heading>
+      <Stack direction='column'>
+        <Text>
+          👋🏽 Hey I am Pape, a web developer currently based in New Hamsphire. I
+          enjoy building tools and learning about new technologies 📚.
+        </Text>
+      </Stack>
+      <Heading size='md'>Selected projects</Heading>
       <Stack direction='column'></Stack>
     </Stack>
   );

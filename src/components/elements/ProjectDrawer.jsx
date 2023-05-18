@@ -22,7 +22,7 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
   const tags = project.technologies?.map(tech => {
     return (
       <Tag size='md' key={tech}>
-        {tech.toLowerCase()}
+        {tech}
       </Tag>
     );
   });
@@ -37,14 +37,12 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
           <DrawerBody>
             <Stack gap={5} pt='60px'>
               <Box>
-                <Heading size='lg'>{project.title?.toLowerCase()}</Heading>
-                <Text>{project.subtitle?.toLowerCase()}</Text>
+                <Heading size='lg'>{project.title}</Heading>
+                <Text>{project.subtitle}</Text>
               </Box>
               <Box
                 bgImage={`url('${
-                  project.image.length > 0
-                    ? project.image[0].url
-                    : defaultProjectImage
+                  project.image?.length > 0 ? project.image[0].url : ''
                 }')`}
                 bgPosition='center'
                 bgRepeat='no-repeat'
@@ -54,7 +52,7 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
               />
 
               <Box>
-                <Text>{project.description?.toLowerCase()}</Text>
+                <Text>{project.description}</Text>
               </Box>
               <Box>
                 <Heading size='sm' pb={3}>

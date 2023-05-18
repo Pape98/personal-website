@@ -26,7 +26,7 @@ const ProjectCard = ({ project }) => {
   const tags = project.technologies?.map(tech => {
     return (
       <Tag size='md' key={tech}>
-        {tech.toLowerCase()}
+        {tech}
       </Tag>
     );
   });
@@ -35,7 +35,7 @@ const ProjectCard = ({ project }) => {
     <>
       <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
       <Stack borderRadius='lg'>
-        <Heading size='lg'>{project.title?.toLowerCase()}</Heading>
+        <Heading size='lg'>{project.title}</Heading>
         <Box
           position='relative'
           h='250px'
@@ -46,9 +46,7 @@ const ProjectCard = ({ project }) => {
         >
           <Card
             bgImage={`url('${
-              project.image.length > 0
-                ? project.image[0].url
-                : defaultProjectImage
+              project.image?.length > 0 ? project.image[0].url : ''
             }')`}
             bgPosition='center'
             bgRepeat='no-repeat'
@@ -70,7 +68,7 @@ const ProjectCard = ({ project }) => {
                   <Stack direction='column'>
                     <Text fontSize='2xl' color='white'>
                       {' '}
-                      {project.subtitle?.toLowerCase()}
+                      {project.subtitle}
                     </Text>
                     <Flex gap={2}>{tags}</Flex>
                   </Stack>

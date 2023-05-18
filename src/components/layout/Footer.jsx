@@ -13,8 +13,8 @@ const Footer = () => {
 
   return (
     <Flex mt='auto' align='center' justify='space-between'>
-      <Text fontSize='xs'>
-        © {new Date().getFullYear()} - built by pape traoré 😊
+      <Text fontSize='sm'>
+        © {new Date().getFullYear()} - Built by Pape Traoré 😊
       </Text>
       <HStack spacing={2} justify='center' align='center'>
         {links}
