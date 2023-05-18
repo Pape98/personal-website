@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Flex, Stack, Text, Heading, Icon } from '@chakra-ui/react';
-
 import { socialLinks } from '@/constants';
 
 const SocialMedia = () => {
@@ -25,11 +24,11 @@ const Home = () => {
     <Stack>
       <Stack direction='column'>
         <Text>
-          👋🏽 Hey I am Pape, a web developer currently based in New Hamsphire. I
+          👋🏽 hey i am pape, a web developer currently based in new hamsphire. i
           enjoy building tools and learning about new technologies 📚.
         </Text>
       </Stack>
-      <Heading size='md'>Selected projects</Heading>
+      <Heading size='md'>selected projects</Heading>
       <Stack direction='column'></Stack>
     </Stack>
   );

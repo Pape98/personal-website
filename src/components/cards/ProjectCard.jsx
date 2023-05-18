@@ -35,7 +35,7 @@ const ProjectCard = ({ project }) => {
     <>
       <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
       <Stack borderRadius='lg'>
-        <Heading size='lg'>{project.title}</Heading>
+        <Heading size='md'>{project.title}</Heading>
         <Box
           position='relative'
           h='250px'
@@ -45,9 +45,8 @@ const ProjectCard = ({ project }) => {
           cursor='pointer'
         >
           <Card
-            bgImage={`url('${
-              project.image?.length > 0 ? project.image[0].url : ''
-            }')`}
+            bgImage={`url('${project.image?.length > 0 ? project.image[0].url : ''
+              }')`}
             bgPosition='center'
             bgRepeat='no-repeat'
             h='250px'
@@ -66,7 +65,7 @@ const ProjectCard = ({ project }) => {
                 <CardBody />
                 <CardFooter zIndex={10}>
                   <Stack direction='column'>
-                    <Text fontSize='2xl' color='white'>
+                    <Text fontSize='xl' color='white'>
                       {' '}
                       {project.subtitle}
                     </Text>

@@ -10,9 +10,9 @@ const Projects = ({ projects }) => {
 
   return (
     <Stack py='50px'>
-      <Heading size='2xl'>💻 Projects</Heading>
+      <Heading size='xl'>💻 projects</Heading>
       <Text fontSize='xl'>
-        This is where I post all of my projects. I tend to work on multiple
+        this is where I post all of my projects. i tend to work on multiple
         things at the same time just for the sake of building cool things.{' '}
       </Text>
 

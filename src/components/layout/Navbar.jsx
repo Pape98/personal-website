@@ -5,14 +5,14 @@ const Navbar = () => {
   return (
     <Flex justify='space-between' align='center' pt='16px' pb='40px'>
       <Link as={NextLink} href='/' textDecoration='none'>
-        <Heading size='lg'>Pape Traoré</Heading>
+        <Heading size='lg'>pape traoré</Heading>
       </Link>
       <HStack spacing={9}>
         <Link as={NextLink} href='/about'>
-          <Text>About</Text>
+          <Text>about</Text>
         </Link>
         <Link as={NextLink} href='/projects'>
-          <Text>Projects</Text>
+          <Text>projects</Text>
         </Link>
       </HStack>
     </Flex>
