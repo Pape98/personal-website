@@ -1,6 +1,7 @@
-import Image from 'next/image';
 import { Flex, Stack, Text, Heading, Icon } from '@chakra-ui/react';
 import { socialLinks } from '@/constants';
+import { airtable } from '@/config';
+import { ProjectCard } from '@/components';
 
 const SocialMedia = () => {
   const links = socialLinks.map(link => {
@@ -19,19 +20,30 @@ const SocialMedia = () => {
   );
 };
 
-const Home = () => {
+const Home = ({ projects }) => {
+  const list = projects.map(project => {
+    return <ProjectCard key={project.title} project={project} />;
+  });
+
   return (
     <Stack>
-      <Stack direction='column'>
-        <Text>
-          👋🏽 hey i am pape, a web developer currently based in new hamsphire. i
-          enjoy building tools and learning about new technologies 📚.
-        </Text>
-      </Stack>
-      <Heading size='md'>selected projects</Heading>
-      <Stack direction='column'></Stack>
+      <Text>
+        👋🏽 Hey I am pape, a web developer currently based in New Hamsphire and the founder of Breadlabs. I
+        enjoy building tools and learning about new technologies 📚.
+      </Text>
+
+      <Heading size='sm' pt={10}>SELECTED PROJECTS</Heading>
+      <Stack pt='20px' spacing={6}> {list}</Stack>
     </Stack>
   );
+};
+
+export const getStaticProps = async () => {
+  const records = await airtable('Projects').select().firstPage();
+  const projects = records.map(record => record.fields);
+  return {
+    props: { projects },
+  };
 };
 
 export default Home;

@@ -9,7 +9,6 @@ import '@/styles/globals.sass';
 import '@fontsource/jost/400.css';
 import '@fontsource/jost/700.css';
 
-import { MDXProvider } from '@mdx-js/react';
 
 const App = ({ Component, pageProps }) => {
   return (

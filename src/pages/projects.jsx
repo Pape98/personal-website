@@ -1,5 +1,4 @@
 import { Stack, Text, Heading } from '@chakra-ui/react';
-
 import { airtable } from '@/config';
 import { ProjectCard } from '@/components';
 
@@ -10,13 +9,13 @@ const Projects = ({ projects }) => {
 
   return (
     <Stack py='50px'>
-      <Heading size='xl'>💻 projects</Heading>
-      <Text fontSize='xl'>
-        this is where I post all of my projects. i tend to work on multiple
+      <Heading size='xl'>Projects</Heading>
+      <Text fontSize='lg' pb={10}>
+        This is where I post all of my projects. I tend to work on multiple
         things at the same time just for the sake of building cool things.{' '}
       </Text>
 
-      <Stack pt='20px' gap='60px'>
+      <Stack pt='20px' gap={5}>
         {list}
       </Stack>
     </Stack>

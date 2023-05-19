@@ -4,6 +4,7 @@ const components = {
   Text: {
     baseStyle: {
       fontSize: 'lg',
+      fontColor: '#dde1e7'
     },
   },
 };
