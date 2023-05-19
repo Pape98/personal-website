@@ -20,11 +20,11 @@ const ProjectCard = ({ project }) => {
                 </Text>
                 <Flex gap={2} flexWrap='wrap'>{tags}</Flex>
             </Stack>
-            <Box flex='1' pos='relative' w="100%" aspectRatio='16/9'>
+            <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden'>
                 {/* {project.image?.length &&
                     <img src={project.image[0].url} alt={project.title} style={{ borderRadius: '10px', height: '100%' }} />
                 } */}
-                <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'contain' }} />
+                <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover' }} />
             </Box>
         </Flex>
     )
