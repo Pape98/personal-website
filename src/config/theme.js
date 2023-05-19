@@ -3,17 +3,26 @@ import { extendTheme } from '@chakra-ui/react';
 const components = {
   Text: {
     baseStyle: {
-      fontSize: 'lg',
+      fontSize: 'sm',
       fontColor: '#dde1e7'
     },
   },
 };
 
 const fonts = {
-  heading: `'Jost', sans-serif`,
-  body: `'Jost', sans-serif`,
+  heading: `'Poppins', sans-serif`,
+  body: `'Poppins', sans-serif`,
 };
 
-const theme = extendTheme({ components, fonts });
+const config = {
+  useSystemColorMode: false,
+  initialColorMode: 'dark',
+}
+
+const theme = extendTheme({
+  config,
+  components,
+  fonts
+});
 
 export default theme;

@@ -1,84 +1,32 @@
-import { useRef } from 'react';
-import { useHover } from '@react-hooks-library/core';
-import {
-  Flex,
-  Tag,
-  Card,
-  Heading,
-  Text,
-  Stack,
-  Box,
-  CardFooter,
-  CardBody,
-  useDisclosure,
-} from '@chakra-ui/react';
-
-import { ProjectDrawer } from '../elements';
+/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
+import { Box, Flex, Stack, Heading, Text, Tag } from '@chakra-ui/react';
 
 const ProjectCard = ({ project }) => {
-  const ref = useRef();
-  const isHovered = useHover(ref);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+    const tags = project.technologies?.map(tech => {
+        return (
+            <Tag size='md' key={tech}>
+                {tech}
+            </Tag>
+        );
+    });
 
-  const gradient =
-    'linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 62%)';
-
-  const tags = project.technologies?.map(tech => {
     return (
-      <Tag size='md' key={tech}>
-        {tech}
-      </Tag>
-    );
-  });
-
-  return (
-    <>
-      <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
-      <Stack borderRadius='lg'>
-        <Heading size='md'>{project.title}</Heading>
-        <Box
-          position='relative'
-          h='250px'
-          w='auto'
-          ref={ref}
-          onClick={onOpen}
-          cursor='pointer'
-        >
-          <Card
-            bgImage={`url('${project.image?.length > 0 ? project.image[0].url : ''
-              }')`}
-            bgPosition='center'
-            bgRepeat='no-repeat'
-            h='250px'
-          >
-            {isHovered && (
-              <>
-                <Box
-                  position='absolute'
-                  top='0'
-                  left='0'
-                  w='100%'
-                  h='100%'
-                  bg={gradient}
-                  opacity={0.6}
-                />
-                <CardBody />
-                <CardFooter zIndex={10}>
-                  <Stack direction='column'>
-                    <Text fontSize='xl' color='white'>
-                      {' '}
-                      {project.subtitle}
-                    </Text>
-                    <Flex gap={2}>{tags}</Flex>
-                  </Stack>
-                </CardFooter>
-              </>
-            )}
-          </Card>
-        </Box>
-      </Stack>
-    </>
-  );
-};
+        <Flex gap={5} flexWrap='wrap'>
+            <Stack w={{ sm: '250px', lg: '350px', xl: '450px' }} gap={2}>
+                <Heading size='sm'>{project.title}</Heading>
+                <Text>
+                    {project.subtitle}
+                </Text>
+                <Flex gap={2} flexWrap='wrap'>{tags}</Flex>
+            </Stack>
+            <Box flex='1'>
+                {project.image.length &&
+                    <img src={project.image[0].url} alt={project.title} style={{ borderRadius: '10px', height: '100%' }} />
+                }
+            </Box>
+        </Flex>
+    )
+}
 
 export default ProjectCard;

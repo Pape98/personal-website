@@ -15,7 +15,7 @@ const Projects = ({ projects }) => {
         things at the same time just for the sake of building cool things.{' '}
       </Text>
 
-      <Stack pt='20px' gap={5}>
+      <Stack pt='20px' gap={20}>
         {list}
       </Stack>
     </Stack>

@@ -32,8 +32,8 @@ const Home = ({ projects }) => {
         enjoy building tools and learning about new technologies 📚.
       </Text>
 
-      <Heading size='sm' pt={10}>SELECTED PROJECTS</Heading>
-      <Stack pt='20px' spacing={6}> {list}</Stack>
+      <Heading size='sm' pt={10}>FEATURED PROJECTS</Heading>
+      <Stack pt='20px' spacing={20}> {list}</Stack>
     </Stack>
   );
 };

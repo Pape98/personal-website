@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import { ChakraProvider, Container, Flex } from '@chakra-ui/react';
+import { ChakraProvider, Container, Flex, Box } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import { theme } from '@/config';
 import { Navbar, Footer } from '../components';
 
 import '@/styles/globals.sass';
-import '@fontsource/jost/400.css';
-import '@fontsource/jost/700.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/700.css';
 
 
 const App = ({ Component, pageProps }) => {
@@ -28,10 +28,12 @@ const App = ({ Component, pageProps }) => {
         />
       </Head>
       <ChakraProvider theme={theme}>
-        <Container maxW='container.md'>
+        <Container maxW='container.xl'>
           <Flex minHeight='100vh' py='1.5rem' px='1.45rem' direction='column'>
             <Navbar />
-            <Component {...pageProps} />
+            <Box pb={10}>
+              <Component {...pageProps} />
+            </Box>
             <Footer />
           </Flex>
         </Container>
