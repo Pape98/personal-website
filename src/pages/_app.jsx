@@ -28,7 +28,7 @@ const App = ({ Component, pageProps }) => {
         />
       </Head>
       <ChakraProvider theme={theme}>
-        <Container maxW='container.xl'>
+        <Container maxW='container.lg'>
           <Flex minHeight='100vh' py='1.5rem' px='1.45rem' direction='column'>
             <Navbar />
             <Box pb={10}>
