@@ -32,7 +32,7 @@ const Home = ({ projects }) => {
         enjoy building tools and learning about new technologies 📚.
       </Text>
 
-      <Heading size='sm' pt={10}>FEATURED PROJECTS</Heading>
+      <Heading size='md' pt={10}>FEATURED PROJECTS</Heading>
       <Stack pt='20px' spacing={20}> {list}</Stack>
     </Stack>
   );
@@ -40,7 +40,10 @@ const Home = ({ projects }) => {
 
 export const getStaticProps = async () => {
   const records = await airtable('Projects').select().firstPage();
-  const projects = records.map(record => record.fields);
+  let projects = records.map(record => record.fields);
+  projects.sort((a, b) => b.year - a.year);
+  // remove projects that are not featured
+  projects = projects.filter(project => project.isFeatured === 'true');
   return {
     props: { projects },
   };

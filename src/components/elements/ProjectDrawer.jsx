@@ -13,10 +13,10 @@ import {
   Link,
   Divider,
 } from '@chakra-ui/react';
+import Image from 'next/image';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 import { defaultProjectImage } from '@/constants';
-
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const ProjectDrawer = ({ isOpen, onClose, project }) => {
   const tags = project.technologies?.map(tech => {
@@ -40,46 +40,43 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
                 <Heading size='lg'>{project.title}</Heading>
                 <Text>{project.subtitle}</Text>
               </Box>
-              <Box
-                bgImage={`url('${
-                  project.image?.length > 0 ? project.image[0].url : ''
-                }')`}
-                bgPosition='center'
-                bgRepeat='no-repeat'
-                h='250px'
-                w='auto'
-                borderRadius='lg'
-              />
+              <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden'>
+                {project.image?.length &&
+                  <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover' }} />}
+              </Box>
 
               <Box>
                 <Text>{project.description}</Text>
               </Box>
               <Box>
                 <Heading size='sm' pb={3}>
-                  technologies
+                  Technologies
                 </Heading>
                 <Flex gap={2}>{tags}</Flex>
               </Box>
-              <Box>
-                <Heading size='sm'>website</Heading>
+
+              {project.website && <Box>
+                <Heading size='sm'>Website</Heading>
                 <Link href={project.website} isExternal>
                   {project.website}
                 </Link>
-              </Box>
+              </Box>}
 
-              <Box>
-                <Heading size='sm'>github</Heading>
+              {project.github && <Box>
+                <Heading size='sm'>Github</Heading>
                 <Link href={project.github} isExternal>
                   {project.github}
                 </Link>
-              </Box>
+              </Box>}
+
             </Stack>
           </DrawerBody>
-          <Flex w='100%' bg='black' padding={4} justify='center' align='center'>
+
+          {project.website && <Flex w='100%' bg='black' padding={4} justify='center' align='center'>
             <Link href={project.website} isExternal color='white'>
-              open project <ExternalLinkIcon mx='2px' />
+              Open project <ExternalLinkIcon mx='2px' />
             </Link>
-          </Flex>
+          </Flex>}
         </DrawerContent>
       </Drawer>
     </>

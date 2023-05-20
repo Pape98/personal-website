@@ -3,8 +3,8 @@ import { extendTheme } from '@chakra-ui/react';
 const components = {
   Text: {
     baseStyle: {
-      fontSize: 'sm',
-      fontColor: '#dde1e7'
+      fontSize: 'md',
+      fontColor: '#dde1e7',
     },
   },
 };
