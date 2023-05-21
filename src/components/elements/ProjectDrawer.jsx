@@ -38,7 +38,7 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
             <Stack gap={5} pt='60px'>
               <Box>
                 <Heading size='lg'>{project.title}</Heading>
-                <Text>{project.subtitle}</Text>
+                {/* <Text>{project.subtitle}</Text> */}
               </Box>
               <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden'>
                 {project.image?.length &&

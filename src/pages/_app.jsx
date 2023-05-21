@@ -6,8 +6,9 @@ import { theme } from '@/config';
 import { Navbar, Footer } from '../components';
 
 import '@/styles/globals.sass';
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/700.css';
+import '@fontsource-variable/roboto-mono';
+import '@fontsource/source-sans-pro';
+
 
 
 const App = ({ Component, pageProps }) => {

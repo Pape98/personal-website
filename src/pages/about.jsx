@@ -1,4 +1,4 @@
-import { Stack, Text, Heading } from '@chakra-ui/react';
+import { Stack, Text, Heading, Link } from '@chakra-ui/react';
 
 const About = () => {
   return (
@@ -6,19 +6,13 @@ const About = () => {
       <Heading size='xl' pb={10}>Hey I am Pape 👋🏾</Heading>
       <Stack spacing='10px'>
         <Text>
-          This is where I post all of my projects. I tend to work on multiple
-          things at the same time just for the sake of building cool things.
-          If you have any cool project ideas please let me know 😊.{' '}
-        </Text>
+          I am the founder and a software engineer at &nbsp;
+          <Link href='http://breadlabs.io' isExternal>
+            Breadlabs
+          </Link> 🍞, an early stage startup that is building various types of software.
 
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida sollicitudin aliquet.
-          Proin vel rutrum diam. Nulla rutrum erat et dictum ullamcorper. Aenean non neque at urna finibus placerat et ut quam.
-          Nunc non mi vulputate, convallis enim condimentum, porttitor dolor. Nam sagittis, diam nec consectetur
-          vestibulum, tellus metus bibendum ex, a cursus eros orci at augue. Suspendisse laoreet
-          nulla ac posuere convallis. Etiam vulputate, ante vel pretium fringilla, leo elit consequat nibh,
-          lobortis porta diam nunc imperdiet sapien.
-
+          Although I enjoy the tech world, I have lots of different interests.
+          Right now
         </Text>
 
         <Heading size='md' pt={10}>
@@ -26,10 +20,12 @@ const About = () => {
         </Heading>
 
         <Text>
-          Nam sagittis, diam nec consectetur
-          vestibulum, tellus metus bibendum ex, a cursus eros orci at augue. Suspendisse laoreet
-          nulla ac posuere convallis. Etiam vulputate, ante vel pretium fringilla, leo elit consequat nibh,
-          lobortis porta diam nunc imperdiet sapien.
+          Most recently, I was the technical felllow at  &nbsp;
+          <Link href='http://dali.dartmouth.edu/' isExternal>
+            DALI
+          </Link>, an innovative startup like experiential leartning program
+          where students work to build technological solutions. Some of my previous roles include software developer, mentor,
+          and mentorship lead. Before that, I graduated from Texas A&M University with a degree in Computer Science and ...a minor in...Cybersecurity 😂.
         </Text>
       </Stack>
 
