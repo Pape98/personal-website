@@ -26,10 +26,10 @@ const ProjectCard = ({ project }) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
+                transition={{ duration: 0.75 }}
                 style={{ height: '100%' }}
             >
-                <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen}>
+                <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} _hover={{ scale: 3 }}>
                     <Stack w={{ base: '350px', md: '350px' }} gap={2}>
                         <Heading size='md'>{project.title}</Heading>
                         <Text>
@@ -37,11 +37,9 @@ const ProjectCard = ({ project }) => {
                         </Text>
                         <Flex gap={2} flexWrap='wrap'>{tags}</Flex>
                     </Stack>
-                    <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden'>
+                    <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden' >
                         {project.image?.length &&
-                            <motion.div>
-                                <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover' }} />
-                            </motion.div>
+                            <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover', }} />
                         }
                     </Box>
                 </Flex>

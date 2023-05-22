@@ -9,10 +9,11 @@ const Navbar = () => {
   const links = paths.map((path) => {
     const isActive = router.pathname === path;
     const color = isActive ? 'primary' : 'secondary';
+    const title = path.slice(1).charAt(0).toUpperCase() + path.slice(2)
     return (
       <Link as={NextLink} href={path} key={path} color={color} _hover={{ color: 'primary' }}
       >
-        {path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+        {isActive ? <Text fontWeight='bold'>{title}</Text> : <Text>{title}</Text>}
       </Link>
     );
   });

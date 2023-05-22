@@ -6,13 +6,17 @@ const About = () => {
       <Heading size='xl' pb={10}>Hey I am Pape 👋🏾</Heading>
       <Stack spacing='10px'>
         <Text>
-          I am the founder and a software engineer at &nbsp;
+          I am the co-founder and a software engineer at &nbsp;
           <Link href='http://breadlabs.io' isExternal>
-            Breadlabs
-          </Link> 🍞, an early stage startup that is building various types of software.
+            <b>Breadlabs</b>
+          </Link> 🍞, an early stage startup that is building various types of software. I work
+          at the intersection of technology and social impact. I am passionate about building
+          products that can ease the lives of people.
+        </Text>
 
-          Although I enjoy the tech world, I have lots of different interests.
-          Right now
+        <Text>
+          Although I enjoy the tech world, coding, and solving problems, I have lots of different interests.
+          I spend a lot of time trying to acquire new skills such as drawing 📝 , animating charaters 👨🏾‍💻 , and learning a new language 🌎.
         </Text>
 
         <Heading size='md' pt={10}>
@@ -22,10 +26,20 @@ const About = () => {
         <Text>
           Most recently, I was the technical felllow at  &nbsp;
           <Link href='http://dali.dartmouth.edu/' isExternal>
-            DALI
+            <b>DALI</b>
           </Link>, an innovative startup like experiential leartning program
-          where students work to build technological solutions. Some of my previous roles include software developer, mentor,
-          and mentorship lead. Before that, I graduated from Texas A&M University with a degree in Computer Science and ...a minor in...Cybersecurity 😂.
+          where students work to build technological solutions. Some of my previous roles include
+          software developer, mentor,and mentorship lead. I actually just graduated from
+          &nbsp;
+          <Link href='https://home.dartmouth.edu/' isExternal>
+            <b>Dartmouth</b> 🌲
+          </Link> with a MS in computer science with a concentration in human-computer interaction.
+          Before that, I graduated from &nbsp;
+          <Link href='https://home.dartmouth.edu/' isExternal>
+            <b>Texas A&M</b>  &nbsp;
+          </Link>
+          with a degree in Computer Science as well
+          and ...a minor in...Cybersecurity 😂 (I did not learn much tbh).
         </Text>
       </Stack>
 
