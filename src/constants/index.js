@@ -5,7 +5,7 @@ const socialLinks = [
     icon: AiOutlineGithub,
     url: 'https://github.com/Pape98',
     title: 'github',
-    color: 'gray.700',
+    color: 'white',
   },
   {
     icon: AiFillLinkedin,

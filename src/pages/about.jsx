@@ -1,4 +1,4 @@
-import { Stack, Text, Heading, Link } from '@chakra-ui/react';
+import { Stack, Text, Heading, Link, Button } from '@chakra-ui/react';
 
 const About = () => {
   return (
@@ -43,7 +43,15 @@ const About = () => {
         </Text>
       </Stack>
 
-      <Stack pt='20px' gap={20}>
+      <Heading size='md' pt={10}>
+        MORE ABOUT ME
+      </Heading>
+      <Stack gap={3}>
+        <Text>I love fun activities so I thought I would create <Link href='https://home.dartmouth.edu/' isExternal>
+          <b>  my own version of <i>Two Truths One Lie</i>.</b>  &nbsp;
+        </Link>
+          Feel free to play the game if you would like to learn more about me 😊.</Text>
+
       </Stack>
     </Stack>
   )

@@ -6,14 +6,14 @@ const Footer = () => {
   const links = socialLinks.map(link => {
     return (
       <Link key={link.title} href={link.url} isExternal display='flex'>
-        <Icon as={link.icon} boxSize='1.2em' />
+        <Icon as={link.icon} boxSize='1.2em' color='secondary' _hover={{ color: link.color }} />
       </Link>
     );
   });
 
   return (
     <Flex mt='auto' align='center' justify='space-between'>
-      <Text fontSize='sm'>
+      <Text fontSize='md'>
         © {new Date().getFullYear()} - Built by Pape Traoré 😊
       </Text>
       <HStack spacing={2} justify='center' align='center'>

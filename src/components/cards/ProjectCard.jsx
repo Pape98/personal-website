@@ -23,18 +23,19 @@ const ProjectCard = ({ project }) => {
         <>
             <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
             <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 15, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 2 }}
                 style={{ height: '100%' }}
             >
                 <motion.div whileHover={{
-                    scale: 1.1,
-                    padding: '20px 0',
-                    transition: { duration: 1 },
+                    scale: 1.05,
+                    padding: '10px 0',
+                    transition: 'all 2s ease'
+
                 }}>
-                    <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} _hover={{ scale: 3 }} top='50px'>
+                    <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen}>
                         <Stack w={{ base: '350px', md: '350px' }} gap={2}>
                             <Heading size='sm'>{project.title}</Heading>
                             <Text>
@@ -47,9 +48,8 @@ const ProjectCard = ({ project }) => {
                                 <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover', }} />
                             }
                         </Box>
-                    </Flex></motion.div>
-
-
+                    </Flex>
+                </motion.div>
             </motion.div>
         </>
     )
