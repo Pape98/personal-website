@@ -1,5 +1,4 @@
 import { Stack, Text, Heading } from '@chakra-ui/react';
-
 import { airtable } from '@/config';
 import { ProjectCard } from '@/components';
 

@@ -23,26 +23,33 @@ const ProjectCard = ({ project }) => {
         <>
             <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
             <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.75 }}
+                transition={{ duration: 2 }}
                 style={{ height: '100%' }}
             >
-                <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} _hover={{ scale: 3 }}>
-                    <Stack w={{ base: '350px', md: '350px' }} gap={2}>
-                        <Heading size='md'>{project.title}</Heading>
-                        <Text>
-                            {project.subtitle}
-                        </Text>
-                        <Flex gap={2} flexWrap='wrap'>{tags}</Flex>
-                    </Stack>
-                    <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden' >
-                        {project.image?.length &&
-                            <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover', }} />
-                        }
-                    </Box>
-                </Flex>
+                <motion.div whileHover={{
+                    scale: 1.1,
+                    padding: '20px 0',
+                    transition: { duration: 1 },
+                }}>
+                    <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} _hover={{ scale: 3 }} top='50px'>
+                        <Stack w={{ base: '350px', md: '350px' }} gap={2}>
+                            <Heading size='sm'>{project.title}</Heading>
+                            <Text>
+                                {project.subtitle}
+                            </Text>
+                            <Flex gap={2} flexWrap='wrap'>{tags}</Flex>
+                        </Stack>
+                        <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden' >
+                            {project.image?.length &&
+                                <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover', }} />
+                            }
+                        </Box>
+                    </Flex></motion.div>
+
+
             </motion.div>
         </>
     )
