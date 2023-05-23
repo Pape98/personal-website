@@ -27,7 +27,7 @@ const About = () => {
           Most recently, I was the technical felllow at  &nbsp;
           <Link href='http://dali.dartmouth.edu/' isExternal>
             <b>DALI</b>
-          </Link>, an innovative startup like experiential leartning program
+          </Link>, an innovative startup like experiential leartning program at Dartmouth College
           where students work to build technological solutions. Some of my previous roles include
           software developer, mentor,and mentorship lead. I actually just graduated from
           &nbsp;
@@ -38,8 +38,7 @@ const About = () => {
           <Link href='https://home.dartmouth.edu/' isExternal>
             <b>Texas A&M</b>  &nbsp;
           </Link>
-          with a degree in Computer Science as well
-          and ...a minor in...Cybersecurity 😂 (I did not learn much tbh).
+          with a degree in Computer Science as well.
         </Text>
       </Stack>
 

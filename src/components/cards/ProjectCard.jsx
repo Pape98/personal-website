@@ -35,7 +35,7 @@ const ProjectCard = ({ project }) => {
                     transition: 'all 2s ease'
 
                 }}>
-                    <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen}>
+                    <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} >
                         <Stack w={{ base: '350px', md: '350px' }} gap={2}>
                             <Heading size='sm'>{project.title}</Heading>
                             <Text>
