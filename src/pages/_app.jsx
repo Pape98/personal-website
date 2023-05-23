@@ -17,16 +17,6 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <title>Pape Traore</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link
-          rel='preconnect'
-          href='https://fonts.gstatic.com'
-          crossOrigin='true'
-        />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap'
-          rel='stylesheet'
-        />
       </Head>
       <ChakraProvider theme={theme}>
         <Container maxW='container.lg'>

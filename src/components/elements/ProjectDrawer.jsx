@@ -16,7 +16,6 @@ import {
 import Image from 'next/image';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
-import { defaultProjectImage } from '@/constants';
 
 const ProjectDrawer = ({ isOpen, onClose, project }) => {
   const tags = project.technologies?.map(tech => {
@@ -34,7 +33,7 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
         <DrawerContent>
           <DrawerCloseButton />
           <Divider />
-          <DrawerBody bg='#0c0f11'>
+          <DrawerBody>
             <Stack gap={5} pt='60px'>
               <Box>
                 <Heading size='lg'>{project.title}</Heading>

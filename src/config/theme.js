@@ -4,20 +4,20 @@ const components = {
   Text: {
     baseStyle: {
       fontSize: 'lg',
-      fontColor: '#dde1e7',
+      fontColor: '#bab3a7',
       lineHeight: '7',
     },
   },
   Link: {
     baseStyle: {
-      color: '#EF9740',
+      color: 'orange.500',
     },
   },
 };
 
 const colors = {
   primary: '#EF9740',
-  secondary: '#dde1e7',
+  secondary: '#bab3a7',
 };
 
 const fonts = {

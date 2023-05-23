@@ -20,7 +20,7 @@ const About = () => {
         </Text>
 
         <Heading size='md' pt={10}>
-          PREVIOUSLY
+          Previously
         </Heading>
 
         <Text>
@@ -43,7 +43,7 @@ const About = () => {
       </Stack>
 
       <Heading size='md' pt={10}>
-        MORE ABOUT ME
+        More about me
       </Heading>
       <Stack gap={3}>
         <Text>I love fun activities so I thought I would create <Link href='https://home.dartmouth.edu/' isExternal>

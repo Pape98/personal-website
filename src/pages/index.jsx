@@ -1,24 +1,12 @@
-import { Flex, Stack, Text, Heading, Icon, SimpleGrid } from '@chakra-ui/react';
-import { socialLinks } from '@/constants';
+import {
+  Flex, Stack, Text, Heading,
+  Icon, Grid, SimpleGrid, Button, GridItem
+} from '@chakra-ui/react';
+import Image from 'next/image';
+import MovingText from 'react-moving-text'
+
 import { airtable } from '@/config';
-import { ProjectCard } from '@/components';
-
-const SocialMedia = () => {
-  const links = socialLinks.map(link => {
-    return (
-      <Stack key={link.title} direction='row' align='center'>
-        <Text>{link.title}</Text>
-        <Icon as={link.icon} boxSize='1.2em' color={link.color} />
-      </Stack>
-    );
-  });
-
-  return (
-    <Flex gap={4} pt={4} direction={{ base: 'column', md: 'row' }}>
-      {links}
-    </Flex>
-  );
-};
+import { ProjectCard, SlideUp } from '@/components';
 
 const Home = ({ projects }) => {
   const list = projects.map(project => {
@@ -26,13 +14,39 @@ const Home = ({ projects }) => {
   });
 
   return (
-    <Stack>
-      <Text>
-        👋🏽 Hey I am pape, a web developer currently based in New Hamsphire and the founder of Breadlabs. I
-        enjoy building tools and learning about new technologies 📚.
-      </Text>
+    <Stack py='20px'>
+      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+        <GridItem colSpan={{ base: 3, md: 1 }}>
+          <Image src='/images/avatar.png' width={350} height={275} alt='pape' />
+        </GridItem>
+        <GridItem colSpan={{ base: 3, md: 2 }}>
+          <Stack spacing={6} flex={1} pt={4}>
+            <Stack gap={2}>
 
-      <Heading size='md' pt={10}>FEATURED PROJECTS</Heading>
+              <SlideUp>
+                <Text color='orange.500'
+                  fontFamily={`"Roboto Mono", serif`}>Hello 👋🏽, my name is </Text>
+              </SlideUp>
+              <SlideUp duration={1} delay={2}>
+                <Heading size={{ base: '2xl', lg: '3xl' }} lineHeight='48px' color="white" fontFamily={`"p22-mackinac-pro", serif`}>
+                  Pape Sow Traoré
+                </Heading>
+              </SlideUp>
+              <SlideUp duration={1} delay={3}>
+                <Heading p={0} size={{ base: 'md', lg: 'lg' }} lineHeight='48px' fontFamily={`"p22-mackinac-pro", serif`}>
+                  I build tools to make life easier.
+                </Heading>
+              </SlideUp>
+              <Text pt={4}>Welcome to my world 🌎! It is so nice to meet you! I am a
+                web developer
+                who enjoys problem-solving and helping people.
+                Play this game 🕹️ to learn more about me. </Text>
+            </Stack>
+            <Button w='200px' bg='orange.500' _hover={{ bg: 'orange.400' }}>Play Game</Button>
+          </Stack>
+        </GridItem>
+      </Grid>
+      <Heading size='md' pt={20}>Featured Projects</Heading>
       <SimpleGrid pt='20px' columns={{ base: 1, md: 2 }} spacing={10}>
         {list}
       </SimpleGrid>

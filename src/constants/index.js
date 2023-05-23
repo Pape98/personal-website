@@ -1,4 +1,5 @@
-import { AiOutlineGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
+import { AiOutlineGithub, AiFillLinkedin } from 'react-icons/ai';
+import { MdEmail } from 'react-icons/md';
 
 const socialLinks = [
   {
@@ -14,7 +15,7 @@ const socialLinks = [
     color: 'blue.500',
   },
   {
-    icon: AiOutlineMail,
+    icon: MdEmail,
     url: 'mailto: papisline2222@gmail.com',
     title: 'email',
     color: 'orange.500',

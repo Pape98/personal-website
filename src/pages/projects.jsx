@@ -8,6 +8,8 @@ const Projects = ({ projects }) => {
     return <ProjectCard key={project.title} project={project} />;
   });
 
+  console.log(projects.length);
+
   return (
     <Stack py='30px'>
       <Heading size='xl' pb={10}>Projects</Heading>
