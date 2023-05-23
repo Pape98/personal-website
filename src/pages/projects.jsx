@@ -1,4 +1,4 @@
-import { Stack, Text, Heading } from '@chakra-ui/react';
+import { Stack, Text, Heading, SimpleGrid } from '@chakra-ui/react';
 import { airtable } from '@/config';
 import { ProjectCard } from '@/components';
 
@@ -16,10 +16,9 @@ const Projects = ({ projects }) => {
         things at the same time just for the sake of building cool things.
         If you have any cool project ideas please let me know 😊.{' '}
       </Text>
-
-      <Stack pt='20px' gap={20}>
+      <SimpleGrid pt='20px' columns={{ base: 1, md: 2 }} spacing={10}>
         {list}
-      </Stack>
+      </SimpleGrid>
     </Stack>
   );
 };

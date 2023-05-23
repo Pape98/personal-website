@@ -16,7 +16,7 @@ const About = () => {
 
         <Text>
           Although I enjoy the tech world, coding, and solving problems, I have lots of different interests.
-          I spend a lot of time trying to acquire new skills such as drawing 📝 , animating charaters 👨🏾‍💻 , and learning a new language 🌎.
+          I spend a lot of time trying to acquire new skills such as drawing 📝 , animating charaters 👨🏾‍💻 , and learning languages 🌎.
         </Text>
 
         <Heading size='md' pt={10}>
@@ -29,11 +29,11 @@ const About = () => {
             <b>DALI</b>
           </Link>, an innovative startup like experiential leartning program at Dartmouth College
           where students work to build technological solutions. Some of my previous roles include
-          software developer, mentor,and mentorship lead. I actually just graduated from
+          software developer, mentor, and mentorship lead. I actually graduated from
           &nbsp;
           <Link href='https://home.dartmouth.edu/' isExternal>
             <b>Dartmouth</b> 🌲
-          </Link> with a MS in computer science with a concentration in human-computer interaction.
+          </Link> not too long ago with a MS in computer science with a concentration in human-computer interaction.
           Before that, I graduated from &nbsp;
           <Link href='https://home.dartmouth.edu/' isExternal>
             <b>Texas A&M</b>  &nbsp;

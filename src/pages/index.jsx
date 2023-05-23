@@ -1,4 +1,4 @@
-import { Flex, Stack, Text, Heading, Icon } from '@chakra-ui/react';
+import { Flex, Stack, Text, Heading, Icon, SimpleGrid } from '@chakra-ui/react';
 import { socialLinks } from '@/constants';
 import { airtable } from '@/config';
 import { ProjectCard } from '@/components';
@@ -33,7 +33,9 @@ const Home = ({ projects }) => {
       </Text>
 
       <Heading size='md' pt={10}>FEATURED PROJECTS</Heading>
-      <Stack pt='20px' spacing={20}> {list}</Stack>
+      <SimpleGrid pt='20px' columns={{ base: 1, md: 2 }} spacing={10}>
+        {list}
+      </SimpleGrid>
     </Stack>
   );
 };

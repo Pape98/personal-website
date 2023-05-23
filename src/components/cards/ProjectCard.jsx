@@ -35,7 +35,12 @@ const ProjectCard = ({ project }) => {
                     transition: 'all 2s ease'
 
                 }}>
-                    <Flex gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} >
+                    <Stack gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} >
+                        <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden' >
+                            {project.image?.length &&
+                                <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover', }} />
+                            }
+                        </Box>
                         <Stack w={{ base: '350px', md: '350px' }} gap={2}>
                             <Heading size='sm'>{project.title}</Heading>
                             <Text>
@@ -43,12 +48,7 @@ const ProjectCard = ({ project }) => {
                             </Text>
                             <Flex gap={2} flexWrap='wrap'>{tags}</Flex>
                         </Stack>
-                        <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden' >
-                            {project.image?.length &&
-                                <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover', }} />
-                            }
-                        </Box>
-                    </Flex>
+                    </Stack>
                 </motion.div>
             </motion.div>
         </>
