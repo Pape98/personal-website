@@ -24,7 +24,6 @@ const ProjectCard = ({ project }) => {
             <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
             <motion.div whileHover={{
                 scale: 1.05,
-                padding: '10px 0',
                 transition: 'all 2s ease'
 
             }}>

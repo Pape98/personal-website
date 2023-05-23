@@ -28,12 +28,12 @@ const Home = ({ projects }) => {
                   fontFamily={`"Roboto Mono", serif`}>Hello 👋🏽, my name is </Text>
               </SlideUp>
               <SlideUp duration={1} delay={2}>
-                <Heading size={{ base: '2xl', lg: '3xl' }} lineHeight='48px' color="white" fontFamily={`"p22-mackinac-pro", serif`}>
+                <Heading size={{ base: 'xl', lg: '2xl' }} lineHeight='48px' color="white">
                   Pape Sow Traoré
                 </Heading>
               </SlideUp>
               <SlideUp duration={1} delay={3}>
-                <Heading p={0} size={{ base: 'md', lg: 'lg' }} lineHeight='48px' fontFamily={`"p22-mackinac-pro", serif`}>
+                <Heading p={0} size={{ base: 'sm', lg: 'md' }} lineHeight='48px'>
                   I build tools to make life easier.
                 </Heading>
               </SlideUp>
