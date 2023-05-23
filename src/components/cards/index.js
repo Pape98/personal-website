@@ -1,3 +1,4 @@
+import GameCard from './GameCard';
 import ProjectCard from './ProjectCard';
 
-export { ProjectCard };
+export { GameCard, ProjectCard };

@@ -3,12 +3,16 @@ import {
   Icon, Grid, SimpleGrid, Button, GridItem
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import MovingText from 'react-moving-text'
+import Link from 'next/link';
+import useSound from 'use-sound';
 
 import { airtable } from '@/config';
 import { ProjectCard, SlideUp } from '@/components';
 
+
 const Home = ({ projects }) => {
+  const [play] = useSound('/sounds/button-click.mp3');
+
   const list = projects.map(project => {
     return <ProjectCard key={project.title} project={project} />;
   });
@@ -42,7 +46,9 @@ const Home = ({ projects }) => {
                 who enjoys problem-solving and helping people.
                 Play this game 🕹️ to learn more about me. </Text>
             </Stack>
-            <Button w='200px' bg='orange.500' _hover={{ bg: 'orange.400' }}>Play Game</Button>
+            <Link href='/reveal-pape'>
+              <Button w='200px' bg='orange.500' _hover={{ bg: 'orange.400' }} onClick={play}>Play Game</Button>
+            </Link>
           </Stack>
         </GridItem>
       </Grid>
