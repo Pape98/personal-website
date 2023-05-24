@@ -46,7 +46,7 @@ const Home = ({ projects }) => {
                 </Text>
               </SlideUp>
             </Stack>
-            <Link href='/reveal-pape'>
+            <Link href='/reveal-me'>
               <ButtonClick label='Play Game' />
             </Link>
           </Stack>
