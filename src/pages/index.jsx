@@ -4,14 +4,12 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import useSound from 'use-sound';
 
 import { airtable } from '@/config';
-import { ProjectCard, SlideUp } from '@/components';
+import { ProjectCard, SlideUp, ButtonClick } from '@/components';
 
 
 const Home = ({ projects }) => {
-  const [play] = useSound('/sounds/button-click.mp3');
 
   const list = projects.map(project => {
     return <ProjectCard key={project.title} project={project} />;
@@ -41,13 +39,15 @@ const Home = ({ projects }) => {
                   I build tools to make life easier.
                 </Heading>
               </SlideUp>
-              <Text pt={4}>Welcome to my world 🌎! It is so nice to meet you! I am a
-                web developer
-                who enjoys problem-solving and helping people.
-                Play this game 🕹️ to learn more about me. </Text>
+              <SlideUp duration={1} delay={4}>
+                <Text pt={4}>Welcome to my world 🌎! It is so nice to meet you! I am a
+                  web developer who enjoys problem-solving and helping people.
+                  Play this game 🕹️ to learn more about me.
+                </Text>
+              </SlideUp>
             </Stack>
             <Link href='/reveal-pape'>
-              <Button w='200px' bg='orange.500' _hover={{ bg: 'orange.400' }} onClick={play}>Play Game</Button>
+              <ButtonClick label='Play Game' />
             </Link>
           </Stack>
         </GridItem>
