@@ -2,6 +2,7 @@ import { useReducer, useEffect } from 'react';
 import { Stack, Flex, Heading, Progress, Text, Box } from '@chakra-ui/react';
 import useSound from 'use-sound';
 import Lottie from "lottie-react";
+import Link from 'next/link';
 
 import { ButtonClick, GameCard } from '@/components';
 import aboutMeData from '@/data/about-me-data';
@@ -44,7 +45,7 @@ const reducer = (state, action) => {
 const Instruction = ({ dispatch }) => {
     return (
         <>
-            <Stack gap={10} align='center'>
+            <Stack gap={6} align='center'>
                 <Flex gap={2} flexDir={{ base: 'column', lg: 'row' }} align='center'>
                     <Heading size='lg'>Welcome To</Heading>
                     <Heading size='lg' color='orange.500'><i>Reveal the Real Pape</i> 👻</Heading>
@@ -86,13 +87,22 @@ const Game = ({ state, dispatch }) => {
     )
 }
 
-const Results = ({ state, dispatch }) => {
+const Results = () => {
     return (
-        <Stack>
-            <Heading size='lg' textAlign='center'>Congratulations</Heading>
+        <Stack gap={6} align='center'>
             <Box pos='fixed' w='100%' h='100%' top='0' left='0' zIndex='-2'>
-                <Lottie animationData={confettiAnimation} loop={true} />
+                <Lottie animationData={confettiAnimation} loop={false} />
             </Box>
+            <Heading size='lg' textAlign='center'>Congratulations 🏆</Heading>
+            <Text align='center'>
+                There are many variations of passages of Lorem Ipsum available, but the majority have
+                suffered alteration in some form, by injected humour, or randomised words which dont look
+                even slightly believable. If you are going to use a passage of Lorem Ipsum, you
+                need to be sure there anything embarrassing hidden in the middle of text.
+            </Text>
+            <Link href='/projects'>
+                <ButtonClick label='Check out other projects' />
+            </Link>
         </Stack>
     )
 };
