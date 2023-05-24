@@ -3,9 +3,20 @@ import Image from 'next/image';
 import { motion } from "framer-motion"
 
 
-const GameCard = ({ delay = 1, statement, answer, userChoice, setUserChoice }) => {
-    return (
+const GameCard = ({ delay = 1, statement, answer, state, dispatch }) => {
+    const onCardSelect = () => {
+        if (state.mode !== 'select') {
+            alert('You have already selected a card for this round.');
+            return;
+        }
+        dispatch({ type: 'SET_USER_CHOICE', payload: statement });
+        dispatch({ type: 'SET_MODE', payload: 'learn' });
+    };
 
+    let bg = statement === answer ? 'orange.500' : '#fafafa';
+    if (state.mode === 'select') bg = '#fafafa';
+
+    return (
         <Box
             pos='relative'
             w='265px'
@@ -42,22 +53,24 @@ const GameCard = ({ delay = 1, statement, answer, userChoice, setUserChoice }) =
 
                 {/* Back of card */}
                 <Flex
+                    onClick={onCardSelect}
                     pos='absolute'
                     _hover={{ bg: 'orange.100' }}
-                    cursor='pointer'
+                    pointerEvents={state.mode === 'select' ? 'auto' : 'none'}
+                    cursor={state.mode === 'select' ? 'pointer' : 'not-allowed'}
                     w='100%'
                     h='100%'
                     sx={{ backfaceVisibility: 'hidden' }}
-                    bg='#fafafa'
                     borderRadius='20px 60px'
-                    border='3px solid #DD6B1F'
+                    bg={bg}
                     color='#333'
                     justify='center'
                     align='center'
                     transform='rotateY(180deg)'>
                     <Stack align='center' gap={4}>
-                        <Image src='/images/bubble.png' width={60} height={60} alt='logo' />
-                        <Text fontSize='lg'>{statement}</Text>
+                        <Text fontSize='lg' color={bg === 'orange.500' ? 'white' : 'black'}><b>{statement}</b></Text>
+                        {state.mode === 'learn' && state.userChoice !== answer && state.userChoice === statement && <Text fontSize='2xl'>❌</Text>}
+                        {state.mode === 'learn' && statement === answer && <Text fontSize='2xl'>✅</Text>}
                     </Stack>
                 </Flex>
             </motion.div>

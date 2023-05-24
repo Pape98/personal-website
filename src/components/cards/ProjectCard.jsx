@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
-import { Box, Flex, Stack, Heading, Text, Tag, useDisclosure } from '@chakra-ui/react';
+import { Box, Tag, useDisclosure } from '@chakra-ui/react';
 import { motion } from "framer-motion"
 
 
@@ -21,25 +21,28 @@ const ProjectCard = ({ project }) => {
     return (
         <>
             <ProjectDrawer isOpen={isOpen} onClose={onClose} project={project} />
-            <motion.div whileHover={{
-                scale: 1.05,
-                transition: 'all 2s ease'
-
-            }}>
-                <Stack gap={5} flexWrap='wrap' cursor='pointer' onClick={onOpen} >
-                    <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden' >
-                        {project.image?.length &&
-                            <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover', }} />
-                        }
-                    </Box>
-                    {/* <Stack w={{ base: '350px', md: '350px' }} gap={2}>
-                            <Heading size='sm'>{project.title}</Heading>
-                            <Text>
-                                {project.subtitle}
-                            </Text>
-                            <Flex gap={2} flexWrap='wrap'>{tags}</Flex>
-                        </Stack> */}
-                </Stack>
+            <motion.div
+                whileHover={{
+                    scale: 1.05,
+                    transition: 'all 2s ease',
+                    filter: 'grayscale(0%)'
+                }}
+                style={{ filter: 'grayscale(95%)', backgroundColor: '#DD6B1F', borderRadius: '8px' }}
+            >
+                <Box
+                    pos='relative'
+                    w="100%"
+                    h="100%"
+                    cursor='pointer'
+                    aspectRatio='16/9'
+                    borderRadius='8px'
+                    overflow='hidden'
+                    onClick={onOpen}
+                >
+                    {project.image?.length &&
+                        <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover' }} />
+                    }
+                </Box>
             </motion.div>
         </>
     )
