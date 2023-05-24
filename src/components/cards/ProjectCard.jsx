@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 
 
 import { ProjectDrawer } from '../elements';
-import { SlideUp } from '../animations';
 
 const ProjectCard = ({ project }) => {
     const ref = useRef();

@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Stack, Flex, Heading, Text } from '@chakra-ui/react';
 
 import { ButtonClick, GameCard } from '@/components';
+import aboutMeData from '@/data/about-me-data';
 
-const screen = {
+const screenType = {
     instructions: 'instructions',
     game: 'game',
 };
 
-const Instruction = ({ setCurrentScreen }) => {
+const Instruction = ({ setScreen }) => {
     return (
         <Stack gap={10} align='center'>
             <Flex gap={2} flexDir={{ base: 'column', lg: 'row' }} align='center'>
@@ -23,31 +24,51 @@ const Instruction = ({ setCurrentScreen }) => {
                 will uncover many web sites still in their infancy. Various versions have evolved
                 over the years, sometimes by accident, sometimes on purpose.
             </Text>
-            <ButtonClick label='Start Game' onClick={() => setCurrentScreen(screen.game)} />
+            <ButtonClick label='Start Game' onClick={() => setScreen(screenType.game)} />
         </Stack>
     )
 };
 
-const Game = () => {
+const Game = ({ questionIndex, userChoise, setUserChoice }) => {
+    const question = aboutMeData[questionIndex];
+    const cards = aboutMeData[questionIndex].statements.map((statement, i) => {
+        return <GameCard
+            key={statement}
+            delay={i + 0.5}
+            statement={statement}
+            answer={question.answer}
+            userChoice={userChoise}
+            setUserChoice={setUserChoice}
+        />
+    });
+
     return (
         <>
             <Text>Game</Text>
             <Flex gap={10} flexWrap='wrap' justify='center' flexDir={{ base: 'column', md: 'row' }}>
-                <GameCard />
-                <GameCard />
-                <GameCard />
+                {cards}
             </Flex>
         </>
     )
 }
 
 const RevealPapeGame = () => {
-    const [currentScreen, setCurrentScreen] = useState(screen.instructions);
+    const [screen, setScreen] = useState(screenType.instructions);
+    const [questionIndex, setQuestionIndex] = useState(0);
+    const [userChoice, setUserChoice] = useState('');
 
     return (
         <Stack align='center' pt={10} spacing={6}>
-            {currentScreen === screen.instructions && <Instruction setCurrentScreen={setCurrentScreen} />}
-            {currentScreen === screen.game && <Game setCurrentScreen={setCurrentScreen} />}
+            {screen === screenType.instructions &&
+                <Instruction
+                    setScreen={setScreen} />
+            }
+            {screen === screenType.game &&
+                <Game
+                    questionIndex={questionIndex}
+                    userChoice={userChoice}
+                    setUserChoice={setUserChoice} />
+            }
         </Stack>
     )
 }

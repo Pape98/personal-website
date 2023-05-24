@@ -1,23 +1,30 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Text, Stack } from '@chakra-ui/react';
 import Image from 'next/image';
+import { motion } from "framer-motion"
 
-const GameCard = () => {
+
+const GameCard = ({ delay = 1, statement, answer, userChoice, setUserChoice }) => {
     return (
+
         <Box
             pos='relative'
-            w='250px'
-            h='250px'>
+            w='265px'
+            h='265px'>
 
             {/* Card*/}
-            <Box
-                pos='absolute'
-                w='100%'
-                h='100%'
-
-                // transformStyle='preserve-3d'
-                sx={{ transformStyle: 'preserve-3d' }}
-                transition='all 0.5s ease'
-                _hover={{ transform: 'rotateY(180deg)' }}>
+            <motion.div
+                animate={{ transform: 'rotateY(180deg)' }}
+                transition={{
+                    transform: { ease: "linear", duration: 0.5 },
+                    delay
+                }}
+                style={{
+                    position: 'absolute',
+                    height: '100%',
+                    width: '100%',
+                    transformStyle: 'preserve-3d'
+                }}
+            >
 
                 {/* Front of card */}
                 <Flex
@@ -33,24 +40,28 @@ const GameCard = () => {
                     <Image src='/images/logo-black.svg' width={75} height={100} alt='logo' />
                 </Flex>
 
-
                 {/* Back of card */}
                 <Flex
                     pos='absolute'
+                    _hover={{ bg: 'orange.100' }}
+                    cursor='pointer'
                     w='100%'
                     h='100%'
                     sx={{ backfaceVisibility: 'hidden' }}
                     bg='#fafafa'
                     borderRadius='20px 60px'
+                    border='3px solid #DD6B1F'
                     color='#333'
                     justify='center'
                     align='center'
                     transform='rotateY(180deg)'>
-                    Back
+                    <Stack align='center' gap={4}>
+                        <Image src='/images/bubble.png' width={60} height={60} alt='logo' />
+                        <Text fontSize='lg'>{statement}</Text>
+                    </Stack>
                 </Flex>
-            </Box>
+            </motion.div>
         </Box>
-
     )
 }
 
