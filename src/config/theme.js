@@ -21,8 +21,8 @@ const colors = {
 };
 
 const fonts = {
-  heading: `'Roboto Mono', sans-serif`,
-  body: `'Source Sans Pro', sans-serif`,
+  heading: `'Baloo 2 Variable', sans-serif`,
+  body: `'Baloo 2 Variable', sans-serif`,
 };
 
 const config = {

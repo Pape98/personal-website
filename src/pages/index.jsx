@@ -27,7 +27,7 @@ const Home = ({ projects }) => {
 
               <SlideUp>
                 <Text color='orange.500'
-                  fontFamily={`"Roboto Mono", serif`}>Hello 👋🏽, my name is </Text>
+                >Hello 👋🏽, my name is </Text>
               </SlideUp>
               <SlideUp duration={1} delay={2}>
                 <Heading size={{ base: 'xl', lg: '2xl' }} lineHeight='48px' color="white">

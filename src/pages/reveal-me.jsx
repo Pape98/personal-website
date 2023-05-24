@@ -1,14 +1,18 @@
 import { useReducer, useEffect } from 'react';
 import { Stack, Flex, Heading, Progress, Text, Box } from '@chakra-ui/react';
 import useSound from 'use-sound';
-
+import Lottie from "lottie-react";
 
 import { ButtonClick, GameCard } from '@/components';
 import aboutMeData from '@/data/about-me-data';
 
+import confettiAnimation from "@/data/lotties/confetti.json";
+
+
 const screenType = {
     instructions: 'instructions',
     game: 'game',
+    results: 'results',
 };
 
 const initialState = {
@@ -67,6 +71,7 @@ const Game = ({ state, dispatch }) => {
             delay={i + 0.5}
             statement={statement}
             answer={question.answer}
+            category={question.category}
             state={state}
             dispatch={dispatch}
         />
@@ -81,10 +86,22 @@ const Game = ({ state, dispatch }) => {
     )
 }
 
-const RevealPapeGame = () => {
+const Results = ({ state, dispatch }) => {
+    return (
+        <Stack>
+            <Heading size='lg' textAlign='center'>Congratulations</Heading>
+            <Box pos='fixed' w='100%' h='100%' top='0' left='0' zIndex='-2'>
+                <Lottie animationData={confettiAnimation} loop={true} />
+            </Box>
+        </Stack>
+    )
+};
+
+const RevealGame = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [wrongAnswerplay] = useSound('/sounds/wrong-answer.mp3');
     const [correctAnswerplay] = useSound('/sounds/correct-answer.mp3');
+    const [celebrationPlay] = useSound('/sounds/celebration.mp3');
 
     useEffect(() => {
         if (state.mode === 'select') return;
@@ -97,10 +114,16 @@ const RevealPapeGame = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [wrongAnswerplay, state.mode, state.userChoice]);
 
+    useEffect(() => {
+        if (state.screen === screenType.results) celebrationPlay();
+
+    }, [celebrationPlay, state.screen]);
+
 
     const onNextQuestion = () => {
         if (state.questionIndex === aboutMeData.length - 1) {
             dispatch({ type: 'RESET' });
+            dispatch({ type: 'SET_SCREEN', payload: screenType.results });
             return;
         }
         dispatch({ type: 'SET_QUESTION_INDEX', payload: state.questionIndex + 1 });
@@ -120,10 +143,7 @@ const RevealPapeGame = () => {
                 </Stack>
             }
             <Stack align='center' pt={10} spacing={6}>
-                {state.screen === screenType.game &&
-                    <Flex>
-                        <Heading size='lg' color='orange.500'>{aboutMeData[state.questionIndex].category}</Heading>
-                    </Flex>}
+
                 {state.screen === screenType.instructions &&
                     <Instruction
                         dispatch={dispatch} />
@@ -133,12 +153,20 @@ const RevealPapeGame = () => {
                         state={state}
                         dispatch={dispatch} />
                 }
+
+                {state.screen === screenType.results &&
+                    <Results
+                        state={state}
+                        dispatch={dispatch} />
+                }
+
                 {state.screen === screenType.game && state.mode === 'learn' && <>
-                    <Text>{aboutMeData[state.questionIndex].explanation}</Text>
+                    <Heading pt={6} size='md'>Reasoning 😊</Heading>
+                    <Text pb={6}>{aboutMeData[state.questionIndex].explanation}</Text>
                     <ButtonClick label='Next' onClick={onNextQuestion} /></>}
             </Stack>
         </Box>
     )
 }
 
-export default RevealPapeGame;
+export default RevealGame;

@@ -4,6 +4,9 @@ import { motion } from "framer-motion"
 
 
 const GameCard = ({ delay = 1, statement, answer, state, dispatch }) => {
+
+    const borderRadius = '20px 50px';
+
     const onCardSelect = () => {
         if (state.mode !== 'select') {
             alert('You have already selected a card for this round.');
@@ -13,14 +16,13 @@ const GameCard = ({ delay = 1, statement, answer, state, dispatch }) => {
         dispatch({ type: 'SET_MODE', payload: 'learn' });
     };
 
-    let bg = statement === answer ? 'orange.500' : '#fafafa';
-    if (state.mode === 'select') bg = '#fafafa';
+    let bg = '#fafafa';
 
     return (
         <Box
             pos='relative'
             w='265px'
-            h='265px'>
+            h='365px'>
 
             {/* Card*/}
             <motion.div
@@ -44,11 +46,12 @@ const GameCard = ({ delay = 1, statement, answer, state, dispatch }) => {
                     h='100%'
                     sx={{ backfaceVisibility: 'hidden' }}
                     bg='#fafafa'
-                    borderRadius='20px 60px'
+                    borderRadius={borderRadius}
                     justify='center'
                     align='center'
                     color='#333'>
-                    <Image src='/images/logo-black.svg' width={75} height={100} alt='logo' />
+                    <Box w='90%' h='90%' bg='orange.500' borderRadius={borderRadius} />
+                    <Image src='/images/logo-white-black.png' width={50} height={100} alt='logo' style={{ position: 'absolute' }} />
                 </Flex>
 
                 {/* Back of card */}
@@ -61,17 +64,20 @@ const GameCard = ({ delay = 1, statement, answer, state, dispatch }) => {
                     w='100%'
                     h='100%'
                     sx={{ backfaceVisibility: 'hidden' }}
-                    borderRadius='20px 60px'
+                    borderRadius={borderRadius}
+                    border='6px solid #DD6B1F'
+                    boxSizing='content-box'
                     bg={bg}
                     color='#333'
                     justify='center'
                     align='center'
                     transform='rotateY(180deg)'>
                     <Stack align='center' gap={4}>
-                        <Text fontSize='lg' color={bg === 'orange.500' ? 'white' : 'black'}><b>{statement}</b></Text>
+                        <Text fontSize='lg' color={bg === 'orange.500' ? 'white' : 'black'}>{statement}</Text>
                         {state.mode === 'learn' && state.userChoice !== answer && state.userChoice === statement && <Text fontSize='2xl'>❌</Text>}
                         {state.mode === 'learn' && statement === answer && <Text fontSize='2xl'>✅</Text>}
                     </Stack>
+                    <Image src='/images/avatar.png' width={40} height={100} alt='logo' style={{ position: 'absolute', bottom: '20px', right: '20px' }} />
                 </Flex>
             </motion.div>
         </Box>

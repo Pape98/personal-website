@@ -8,8 +8,7 @@ import { Navbar, Footer } from '../components';
 import '@/styles/globals.sass';
 import '@fontsource-variable/roboto-mono';
 import '@fontsource/source-sans-pro';
-
-
+import '@fontsource-variable/baloo-2';
 
 const App = ({ Component, pageProps }) => {
   return (
