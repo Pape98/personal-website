@@ -50,13 +50,14 @@ const Instruction = ({ dispatch }) => {
                     <Heading size='lg'>Welcome To</Heading>
                     <Heading size='lg' color='orange.500'><i>Reveal the Real Pape</i> 👻</Heading>
                 </Flex>
-                <Text align='center'>It is a long established fact that a reader will be distracted by the readable
-                    content of a page when looking at its layout. The point of using Lorem Ipsum is that it
-                    has a more-or-less normal distribution of letters, as opposed to using Content here,
-                    content making it look like readable English. Many desktop publishing packages and
-                    web page editors now use Lorem Ipsum as their default model text, and a search for lorem
-                    will uncover many web sites still in their infancy. Various versions have evolved
-                    over the years, sometimes by accident, sometimes on purpose.
+                <Text align='center'>Ready to have some fun and get to know me better? I&quot;ve created
+                    an a version <i>Two Truths, One Lie</i> so you can learn some facts about me.
+                </Text>
+                <Text align='center'>Here&quot;s how it works:
+                    I&quot;ll share three statements about myself, and its your job to spot the sneaky lie. While
+                    two statements will be true, one will be a cleverly crafted falsehood. It&quot;s a test of
+                    your intuition and keen observation skills to separate fact from fiction. So, let&quot;s
+                    dive right into this thrilling game of <i>Two Truths, One Lie</i> and uncover the real me!
                 </Text>
                 <ButtonClick label='Start Game' onClick={() => dispatch({ type: 'SET_SCREEN', payload: screenType.game })} />
             </Stack>
@@ -93,12 +94,11 @@ const Results = () => {
             <Box pos='fixed' w='100%' h='100%' top='0' left='0' zIndex='-2'>
                 <Lottie animationData={confettiAnimation} loop={false} />
             </Box>
-            <Heading size='lg' textAlign='center'>Congratulations 🏆</Heading>
+            <Heading size='lg' textAlign='center'>WooHoo 🏆</Heading>
             <Text align='center'>
-                There are many variations of passages of Lorem Ipsum available, but the majority have
-                suffered alteration in some form, by injected humour, or randomised words which dont look
-                even slightly believable. If you are going to use a passage of Lorem Ipsum, you
-                need to be sure there anything embarrassing hidden in the middle of text.
+                Kudos on completing the game! If you enjoyed getting to know me,
+                why not check out my other exciting projects on the website? There&quot;s
+                a lot more to explore and discover. Keep the adventure going!
             </Text>
             <Link href='/projects'>
                 <ButtonClick label='Check out other projects' />

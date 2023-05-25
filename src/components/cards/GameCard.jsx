@@ -73,7 +73,7 @@ const GameCard = ({ delay = 1, statement, answer, state, dispatch }) => {
                     align='center'
                     transform='rotateY(180deg)'>
                     <Stack align='center' gap={4}>
-                        <Text fontSize='lg' color={bg === 'orange.500' ? 'white' : 'black'}>{statement}</Text>
+                        <Text fontSize='lg' color={bg === 'orange.500' ? 'white' : 'black'} textAlign='center' p={4}>{statement}</Text>
                         {state.mode === 'learn' && state.userChoice !== answer && state.userChoice === statement && <Text fontSize='2xl'>❌</Text>}
                         {state.mode === 'learn' && statement === answer && <Text fontSize='2xl'>✅</Text>}
                     </Stack>
