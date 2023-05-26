@@ -24,9 +24,10 @@ const Projects = ({ projects }) => {
 };
 
 export const getStaticProps = async () => {
-  const records = await airtable('Projects').select().firstPage();
+  const records = await airtable('Projects').select({
+    sort: [{ field: 'year', direction: 'desc' }], filterByFormula: "isIncluded = 'true'"
+  }).firstPage();
   const projects = records.map(record => record.fields);
-  projects.sort((a, b) => b.year - a.year);
   return {
     props: { projects },
   };

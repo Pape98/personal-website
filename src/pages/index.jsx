@@ -18,13 +18,17 @@ const Home = ({ projects }) => {
   return (
     <Stack py='20px'>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+        {/* Avatar */}
         <GridItem colSpan={{ base: 3, md: 1 }}>
-          <Image src='/images/avatar.png' width={350} height={275} alt='pape' />
+          <Flex justify={{ xs: 'center', md: 'flex-start' }}>
+            <Image src='/images/avatar.png' width={350} height={275} alt='pape' />
+          </Flex>
         </GridItem>
-        <GridItem colSpan={{ base: 3, md: 2 }}>
-          <Stack spacing={6} flex={1} pt={4}>
-            <Stack gap={2}>
 
+        {/* Welcome message */}
+        <GridItem colSpan={{ base: 3, md: 2 }}>
+          <Stack spacing={6} pt={4} align={{ base: 'center', md: 'flex-start' }}>
+            <Stack gap={2} align={{ base: 'center', md: 'flex-start' }}>
               <SlideUp>
                 <Text color='orange.500'
                 >Hello 👋🏽, my name is </Text>
@@ -35,12 +39,12 @@ const Home = ({ projects }) => {
                 </Heading>
               </SlideUp>
               <SlideUp duration={1} delay={3}>
-                <Heading p={0} size={{ base: 'sm', lg: 'md' }} lineHeight='48px'>
+                <Heading p={0} size={{ sm: 'sm', lg: 'md' }} lineHeight='48px'>
                   I build tools to make life easier.
                 </Heading>
               </SlideUp>
               <SlideUp duration={1} delay={4}>
-                <Text pt={4}>Welcome to my world 🌎! It is so nice to meet you! I am a
+                <Text pt={4} textAlign={{ base: 'center', md: 'left' }}>Welcome to my world 🌎! It is so nice to meet you! I am a
                   web developer who enjoys problem-solving and helping people.
                   Play this game 🕹️ to learn more about me.
                 </Text>
@@ -61,9 +65,10 @@ const Home = ({ projects }) => {
 };
 
 export const getStaticProps = async () => {
-  const records = await airtable('Projects').select().firstPage();
+  const records = await airtable('Projects').select({
+    sort: [{ field: 'year', direction: 'desc' }], filterByFormula: "isIncluded = 'true'"
+  }).firstPage();
   let projects = records.map(record => record.fields);
-  projects.sort((a, b) => b.year - a.year);
   // remove projects that are not featured
   projects = projects.filter(project => project.isFeatured === 'true');
   return {

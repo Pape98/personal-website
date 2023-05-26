@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from 'react';
-import { Stack, Flex, Heading, Progress, Text, Box } from '@chakra-ui/react';
+import { Stack, Flex, Heading, Progress, Text, Box, Container } from '@chakra-ui/react';
 import useSound from 'use-sound';
 import Lottie from "lottie-react";
 import Link from 'next/link';
@@ -44,24 +44,25 @@ const reducer = (state, action) => {
 
 const Instruction = ({ dispatch }) => {
     return (
-        <>
+        <Container>
             <Stack gap={6} align='center'>
                 <Flex gap={2} flexDir={{ base: 'column', lg: 'row' }} align='center'>
                     <Heading size='lg'>Welcome To</Heading>
                     <Heading size='lg' color='orange.500'><i>Reveal the Real Pape</i> 👻</Heading>
                 </Flex>
                 <Text align='center'>Ready to have some fun and get to know me better? I&quot;ve created
-                    an a version <i>Two Truths, One Lie</i> so you can learn some facts about me.
-                </Text>
-                <Text align='center'>Here&quot;s how it works:
+                    an a version <i>Two Truths, One Lie</i>.Here&quot;s how it works:
                     I&quot;ll share three statements about myself, and its your job to spot the sneaky lie. While
                     two statements will be true, one will be a cleverly crafted falsehood. It&quot;s a test of
                     your intuition and keen observation skills to separate fact from fiction. So, let&quot;s
                     dive right into this thrilling game of <i>Two Truths, One Lie</i> and uncover the real me!
                 </Text>
+                <Text align='center'>So, let&quot;s dive right into this thrilling game of
+                    <i>Two Truths, One Lie</i> and uncover the real me!
+                </Text>
                 <ButtonClick label='Start Game' onClick={() => dispatch({ type: 'SET_SCREEN', payload: screenType.game })} />
             </Stack>
-        </>
+        </Container>
     )
 };
 
@@ -90,20 +91,24 @@ const Game = ({ state, dispatch }) => {
 
 const Results = () => {
     return (
-        <Stack gap={6} align='center'>
-            <Box pos='fixed' w='100%' h='100%' top='0' left='0' zIndex='-2'>
-                <Lottie animationData={confettiAnimation} loop={false} />
-            </Box>
-            <Heading size='lg' textAlign='center'>WooHoo 🏆</Heading>
-            <Text align='center'>
-                Kudos on completing the game! If you enjoyed getting to know me,
-                why not check out my other exciting projects on the website? There&quot;s
-                a lot more to explore and discover. Keep the adventure going!
-            </Text>
-            <Link href='/projects'>
-                <ButtonClick label='Check out other projects' />
-            </Link>
-        </Stack>
+        <Container>
+            <Stack gap={6} align='center'>
+                <Box pos='fixed' w='100%' h='100%' top='0' left='0' zIndex='-2'>
+                    <Lottie animationData={confettiAnimation} loop={false} />
+                </Box>
+                <Heading size='lg' textAlign='center'>WooHoo 🏆</Heading>
+                <Text align='center'>
+                    Kudos on completing the game! If you enjoyed getting to know me,
+                    why not check out my other exciting projects on the website? There&quot;s
+                    a lot more to explore and discover.
+                </Text>
+                <Text align='center'> Keep the adventure going!
+                </Text>
+                <Link href='/projects'>
+                    <ButtonClick label='Check out my projects' />
+                </Link>
+            </Stack>
+        </Container>
     )
 };
 
@@ -172,7 +177,7 @@ const RevealGame = () => {
 
                 {state.screen === screenType.game && state.mode === 'learn' && <>
                     <Heading pt={6} size='md'>Reasoning 😊</Heading>
-                    <Text pb={6}>{aboutMeData[state.questionIndex].explanation}</Text>
+                    <Text textAlign='center' pb={6}>{aboutMeData[state.questionIndex].explanation}</Text>
                     <ButtonClick label='Next' onClick={onNextQuestion} /></>}
             </Stack>
         </Box>
