@@ -40,7 +40,11 @@ const ProjectCard = ({ project }) => {
                     onClick={onOpen}
                 >
                     {project.image?.length &&
-                        <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover' }} />
+                        <Image src={project.image[0].url}
+                            alt={project.title}
+                            fill={true}
+                            unoptimized={true}
+                            style={{ objectFit: 'cover' }} />
                     }
                 </Box>
             </motion.div>
