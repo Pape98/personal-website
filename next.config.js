@@ -6,13 +6,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.airtableusercontent.com',
+        hostname: 'v5.airtableusercontent.com',
       },
     ],
+    domains: ['v5.airtableusercontent.com']
   },
 };
 

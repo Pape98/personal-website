@@ -43,7 +43,6 @@ const ProjectCard = ({ project }) => {
                         <Image src={project.image[0].url}
                             alt={project.title}
                             fill={true}
-                            unoptimized={true}
                             style={{ objectFit: 'cover' }} />
                     }
                 </Box>
