@@ -5,21 +5,28 @@ import Image from 'next/image';
 
 const Navbar = () => {
   const router = useRouter();
-  const paths = ['/about', '/projects'];
+  const paths = ['/about', '/projects', '/resume'];
 
-  const links = paths.map((path) => {
+  const links = paths.map(path => {
     const isActive = router.pathname === path;
     const color = isActive ? 'orange.500' : 'secondary';
-    const title = path.slice(1).charAt(0).toUpperCase() + path.slice(2)
+    const title = path.slice(1).charAt(0).toUpperCase() + path.slice(2);
     return (
-      <Link px={2}
+      <Link
+        px={2}
         as={NextLink}
-        href={path} key={path} color={color}
+        href={path}
+        key={path}
+        color={color}
         borderRadius='8px'
         _hover={{ bg: 'orange.500', color: 'white' }}
         transition='all 0.25s ease-in-out'
       >
-        {isActive ? <Text fontWeight='bold'>{title}</Text> : <Text>{title}</Text>}
+        {isActive ? (
+          <Text fontWeight='bold'>{title}</Text>
+        ) : (
+          <Text>{title}</Text>
+        )}
       </Link>
     );
   });
@@ -31,6 +38,9 @@ const Navbar = () => {
       </Link>
       <HStack spacing={4}>
         {links}
+        {/* <NextLink locale={false} href='pdfs/resume.pdf'>
+          Resume
+        </NextLink> */}
       </HStack>
     </Flex>
   );
