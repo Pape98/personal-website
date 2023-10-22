@@ -41,7 +41,7 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
               </Box>
               <Box flex='1' pos='relative' w="100%" aspectRatio='16/9' borderRadius='8px' overflow='hidden'>
                 {project.image?.length &&
-                  <Image src={project.image[0].url} alt={project.title} fill={true} style={{ objectFit: 'cover' }} />}
+                  <Image src={`/images/${project.image}.png`} alt={project.title} fill={true} style={{ objectFit: 'cover' }} />}
               </Box>
 
               <Box>
