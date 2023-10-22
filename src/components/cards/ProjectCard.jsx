@@ -40,7 +40,7 @@ const ProjectCard = ({ project }) => {
                     onClick={onOpen}
                 >
                     {project.image?.length &&
-                        <Image src={project.image[0].url}
+                        <Image src={`/images/${project.image}.png`}
                             alt={project.title}
                             fill={true}
                             style={{ objectFit: 'cover' }} />
