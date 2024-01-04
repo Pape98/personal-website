@@ -34,7 +34,7 @@ const Home = ({ projects }) => {
                 >Hello 👋🏽, my name is </Text>
               </SlideUp>
               <SlideUp duration={1} delay={2}>
-                <Heading size={{ base: 'xl', lg: '2xl' }} lineHeight='48px' color="white">
+                <Heading size={{ base: 'lg', lg: 'xl' }} lineHeight='48px' >
                   Pape Sow Traoré
                 </Heading>
               </SlideUp>

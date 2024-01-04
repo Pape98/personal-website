@@ -30,7 +30,7 @@ const ProjectDrawer = ({ isOpen, onClose, project }) => {
     <>
       <Drawer isOpen={isOpen} placement='right' onClose={onClose} size='md'>
         <DrawerOverlay />
-        <DrawerContent bg='#121212'>
+        <DrawerContent>
           <DrawerCloseButton />
           <Divider />
           <DrawerBody bg={`url('/images/background.svg') repeat center fixed`}>

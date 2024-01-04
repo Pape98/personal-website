@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const links = paths.map(path => {
     const isActive = router.pathname === path;
-    const color = isActive ? 'orange.500' : 'secondary';
+    const color = isActive ? 'orange.500' : 'black';
     const title = path.slice(1).charAt(0).toUpperCase() + path.slice(2);
     return (
       <Link
@@ -34,7 +34,7 @@ const Navbar = () => {
   return (
     <Flex justify='space-between' align='center' pt='16px' pb='40px'>
       <Link as={NextLink} href='/' textDecoration='none'>
-        <Image src='/images/logo.png' width={40} height={40} alt='pape' />
+        <Image src='/images/logo-black.png' width={40} height={40} alt='pape' />
       </Link>
       <HStack spacing={4}>
         {links}
