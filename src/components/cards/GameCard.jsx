@@ -45,7 +45,7 @@ const GameCard = ({ delay = 1, statement, answer, state, dispatch }) => {
                     w='100%'
                     h='100%'
                     sx={{ backfaceVisibility: 'hidden' }}
-                    bg='#fafafa'
+                    border='1px solid #e2e8f0'
                     borderRadius={borderRadius}
                     justify='center'
                     align='center'

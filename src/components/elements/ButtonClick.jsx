@@ -9,7 +9,7 @@ const ButtonClick = ({ w = '200px', bg = 'orange.500', _hoverbg = 'orange.400', 
     }
 
     return (
-        <Button w={w} bg={bg} _hover={{ bg: _hoverbg }} onClick={onButtonClick}>{label}</Button>
+        <Button w={w} bg={bg} _hover={{ bg: _hoverbg }} onClick={onButtonClick} color='white'>{label}</Button>
     )
 }
 
